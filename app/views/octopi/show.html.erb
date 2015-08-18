@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Name:</strong>
@@ -7,17 +7,17 @@
 
 <p>
   <strong>Owner:</strong>
-  <%= @octopus.owner %>
+  <%= @octopus.owner.first_name + " " + @octopus.owner.last_name %>
 </p>
 
 <p>
   <strong>Breed:</strong>
-  <%= @octopus.breed %>
+  <%= @octopus.breed.breed %>
 </p>
 
 <p>
   <strong>Dob:</strong>
-  <%= @octopus.dob %>
+  <%= @octopus.dob.stamp("March 22, 1992") %>
 </p>
 
 <p>
@@ -35,5 +35,5 @@
   <%= @octopus.in_daycare %>
 </p>
 
-<%= link_to 'Edit', edit_octopus_path(@octopus) %> |
-<%= link_to 'Back', octopi_path %>
+<%= link_to 'Edit', edit_octopus_path(@octopus), class: "btn btn-warning" %>
+<%= link_to 'Back', octopi_path, class: "btn btn-primary" %>

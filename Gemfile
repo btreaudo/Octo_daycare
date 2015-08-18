@@ -20,7 +20,7 @@ gem 'thin'
 gem 'awesome_print'
 gem 'annotate'
 gem 'starter_generators'
-
+gem 'stamp'
 
 
 group :development do

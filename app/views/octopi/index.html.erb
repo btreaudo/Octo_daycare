@@ -2,15 +2,13 @@
 
 <h1>Listing Octopi</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
       <th>Owner</th>
       <th>Breed</th>
-      <th>Dob</th>
       <th>Vet name</th>
-      <th>Vet phone</th>
       <th>In daycare</th>
       <th colspan="3"></th>
     </tr>
@@ -20,11 +18,9 @@
     <% @octopi.each do |octopus| %>
       <tr>
         <td><%= octopus.name %></td>
-        <td><%= octopus.owner %></td>
-        <td><%= octopus.breed %></td>
-        <td><%= octopus.dob %></td>
+        <td><%= octopus.try(:owner).try(:last_name) %></td>
+        <td><%= octopus.breed.breed %></td>
         <td><%= octopus.vet_name %></td>
-        <td><%= octopus.vet_phone %></td>
         <td><%= octopus.in_daycare %></td>
         <td><%= link_to 'Show', octopus %></td>
         <td><%= link_to 'Edit', edit_octopus_path(octopus) %></td>
@@ -36,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Octopus', new_octopus_path %>
+<%= link_to 'New Octopus', new_octopus_path, class: 'btn btn-success' %>
