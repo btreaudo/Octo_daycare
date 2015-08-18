@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Last name:</strong>
@@ -20,5 +20,5 @@
   <%= @owner.emergency_phone %>
 </p>
 
-<%= link_to 'Edit', edit_owner_path(@owner) %> |
-<%= link_to 'Back', owners_path %>
+<%= link_to 'Edit', edit_owner_path(@owner), class: "btn btn-warning" %>
+<%= link_to 'Back', owners_path,class: "btn btn-primary" %>
