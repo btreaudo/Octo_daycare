@@ -1,35 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Octopi</h1>
+<h1>Our Octopi</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Owner</th>
-      <th>Breed</th>
-      <th>Vet name</th>
-      <th>In daycare</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="row">
     <% @octopi.each do |octopus| %>
-      <tr>
-        <td><%= octopus.name %></td>
-        <td><%= octopus.try(:owner).try(:last_name) %></td>
-        <td><%= octopus.breed.breed %></td>
-        <td><%= octopus.vet_name %></td>
-        <td><%= octopus.in_daycare %></td>
-        <td><%= link_to 'Show', octopus %></td>
-        <td><%= link_to 'Edit', edit_octopus_path(octopus) %></td>
-        <td><%= link_to 'Destroy', octopus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <div class="col-md-3">
+        <div class="panel panel-default <% 'panel-success' if octopus.in_daycare %>">
+          <div class="panel-heading">
+        <h3 class="panel-title"><% octopus.name %><%= octopus.try(:owner).try(:name) %></h3>
+      </div>
+     <div class="panel-body">
+        <%= image_tag octopus.avatar.url(:medium), class: "img-responsive" %>
 
-<br>
+        <%= octopus.id %>
+        <%= octopus.name %>
+        <%= octopus.breed.breed %>
+        <%= link_to 'Show', octopus %>
+        <%= link_to 'Edit', edit_octopus_path(octopus) %><i class="fa fa-pencil-square-o"></i>
+        <%= link_to 'Destroy', octopus, method: :delete, data: { confirm: 'Are you sure?' } %><i class="fa fa-pencil-square-o"></i>
+     </div>
+   </div>
+  </div>
+<% end %>
+</div>
+  <% @octopi.each do |octopus| %>
 
 <%= link_to 'New Octopus', new_octopus_path, class: 'btn btn-success' %>
+<% end %>
