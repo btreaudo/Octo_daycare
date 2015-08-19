@@ -35,5 +35,11 @@
   <%= @octopus.in_daycare %>
 </p>
 
+<p>
+<%= image_tag @octopus.avatar.url %>
+<%= image_tag @octopus.avatar.url(:medium) %>
+<%= image_tag @octopus.avatar.url(:thumb) %>
+</p>
+
 <%= link_to 'Edit', edit_octopus_path(@octopus), class: "btn btn-warning" %>
 <%= link_to 'Back', octopi_path, class: "btn btn-primary" %>
