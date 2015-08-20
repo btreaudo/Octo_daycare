@@ -4,7 +4,15 @@ class OctopiController < ApplicationController
   # GET /octopi
   # GET /octopi.json
   def index
-    @octopi = Octopus.all
+    if params[:search]
+      @octopi = Octopus.where("name LIKE ?", "%#{params[:search]}%")
+        if @octopi.size.zero?
+        flash[:notice] = "No result found"
+        @octopi = Octopus.all
+      end
+    else
+      @octopi = Octopus.all
+    end
   end
 
   # GET /octopi/1
@@ -42,7 +50,7 @@ class OctopiController < ApplicationController
   def update
     respond_to do |format|
       if @octopus.update(octopus_params)
-        format.html { redirect_to @octopus, notice: 'Octopus was successfully updated.' }
+        format.html { redirect_to octopi_path, notice: 'Octopus was successfully updated.' }
         format.json { render :show, status: :ok, location: @octopus }
       else
         format.html { render :edit }
