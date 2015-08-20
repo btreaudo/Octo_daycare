@@ -12,7 +12,6 @@
      <div class="panel-body">
         <%= image_tag octopus.avatar.url(:medium), class: "img-responsive" %>
 
-        <%= octopus.id %>
         <%= octopus.name %>
         <%= octopus.breed.breed %>
         <%= link_to 'Show', octopus %>
@@ -23,7 +22,6 @@
   </div>
 <% end %>
 </div>
-  <% @octopi.each do |octopus| %>
+
 
 <%= link_to 'New Octopus', new_octopus_path, class: 'btn btn-success' %>
-<% end %>
