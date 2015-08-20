@@ -10,8 +10,19 @@
         <h3 class="panel-title"><% octopus.name %><%= octopus.try(:owner).try(:name) %></h3>
       </div>
      <div class="panel-body">
-        <%= image_tag octopus.avatar.url(:medium), class: "img-responsive" %>
 
+          <%= form_for(octopus, url: octopus_path(octopus), :html => {class: "form-inline"}) do |f| %>
+           <% if octopus.in_daycare %>
+             <%= f.hidden_field :in_daycare, :value => false %>
+             <%= f.submit "Check Out", class: "btn btn-warning btn-xs" %>
+           <% else %>
+             <%= f.hidden_field :in_daycare, :value => true %>
+             <%= f.submit "Check In", class: "btn btn-success btn-xs" %>
+           <% end %>
+         <% end %>
+
+
+        <%= image_tag octopus.avatar.url(:medium), class: "img-responsive" %>
         <%= octopus.name %>
         <%= octopus.breed.breed %>
         <%= link_to 'Show', octopus %>

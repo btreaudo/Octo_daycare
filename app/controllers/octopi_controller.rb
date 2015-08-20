@@ -50,7 +50,7 @@ class OctopiController < ApplicationController
   def update
     respond_to do |format|
       if @octopus.update(octopus_params)
-        format.html { redirect_to @octopus, notice: 'Octopus was successfully updated.' }
+        format.html { redirect_to octopi_path, notice: 'Octopus was successfully updated.' }
         format.json { render :show, status: :ok, location: @octopus }
       else
         format.html { render :edit }
