@@ -4,16 +4,25 @@ class OctopiController < ApplicationController
   # GET /octopi
   # GET /octopi.json
   def index
+    @breeds = Breed.all
+    breed_ids = params[:breed_ids]
     if params[:search]
       @octopi = Octopus.where("name LIKE ?", "%#{params[:search]}%")
         if @octopi.size.zero?
         flash[:notice] = "No result found"
         @octopi = Octopus.all
       end
-    else
+  elsif params[:breed_ids]
+    @octopi = Octopus.where(breed_id: params[:breed_ids])
+            if @octopi.size.zero?
+        flash[:notice] = "There are no breeds of this kind"
+        @octopi = Octopus.all
+      end
+        else
       @octopi = Octopus.all
     end
   end
+
 
   # GET /octopi/1
   # GET /octopi/1.json

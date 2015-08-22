@@ -1,15 +1,22 @@
 <p id="notice"><%= notice %></p>
+  <p>
+    <h1>Our Octopi</h1>
+    <p>filter by:</p>
+    <% @breeds.each do |breed| %>
+    <a href="?breed_ids=<%= breed.id %>"><button class="btn btn-default btn-sm"><%= breed.breed %></button></a>
 
-<h1>Our Octopi</h1>
+    <% end %>
+    </p>
+
 
   <div class="row">
     <% @octopi.each do |octopus| %>
       <div class="col-md-3">
         <div class="panel panel-default <% 'panel-success' if octopus.in_daycare %>">
           <div class="panel-heading">
-        <h3 class="panel-title"><% octopus.name %><%= octopus.try(:owner).try(:name) %></h3>
-      </div>
-     <div class="panel-body">
+           <h3 class="panel-title"><% octopus.name %><%= octopus.try(:owner).try(:name) %></h3>
+             </div>
+                <div class="panel-body">
 
           <%= form_for(octopus, url: octopus_path(octopus), :html => {class: "form-inline"}) do |f| %>
            <% if octopus.in_daycare %>
