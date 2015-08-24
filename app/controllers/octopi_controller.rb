@@ -1,5 +1,6 @@
 class OctopiController < ApplicationController
   before_action :set_octopus, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /octopi
   # GET /octopi.json
