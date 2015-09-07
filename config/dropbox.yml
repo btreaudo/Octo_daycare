@@ -1,0 +1,13 @@
+# app_key: "auqnnmfkjygrhk0"
+# app_secret: "cn1o0dzjey3fltj"
+# access_token: " on405gjcm1sah69d"
+# access_token_secret: "8d6t8po425ryqn7"
+# user_id: "..."
+# access_type: "464981049"
+
+app_key: <%= ENV['auqnnmfkjygrhk0'] %>
+app_secret: <%= ENV['cn1o0dzjey3fltj'] %>
+access_token: <%= ENV['on405gjcm1sah69d'] %>
+access_token_secret: <%= ENV['8d6t8po425ryqn7'] %>
+user_id: <%= ENV['464981049ettg5'] %>
+access_type: <%= ENV['app_folder'] %>
